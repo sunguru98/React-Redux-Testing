@@ -3,10 +3,8 @@ import { shallow, ShallowWrapper } from 'enzyme'
 import Header from '../components/Header'
 import { fetchComponentByAttribute } from '../utils/index'
 
-const setUpHeader = (props: object = {}) => {
-  const component: ShallowWrapper = shallow(<Header {...props} />)
-  return component
-}
+const setUpHeader = (props: object = {}): ShallowWrapper =>
+  shallow(<Header {...props} />)
 
 describe('Header component tests', () => {
   let component: ShallowWrapper
@@ -25,6 +23,6 @@ describe('Header component tests', () => {
 
   it('Should render an SVG logo ', () => {
     const headerLogo = fetchComponentByAttribute(component, 'headerLogo')
-    expect(headerLogo).toHaveLength(1) 
+    expect(headerLogo).toHaveLength(1)
   })
 })
