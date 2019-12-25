@@ -1,16 +1,30 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, ShallowWrapper } from 'enzyme'
 import Header from '../components/Header'
-import { LogoContainer } from '../styles/HeaderStyles'
+import { fetchComponentByAttribute } from '../utils/index'
+
+const setUpHeader = (props: object = {}) => {
+  const component: ShallowWrapper = shallow(<Header {...props} />)
+  return component
+}
 
 describe('Header component tests', () => {
+  let component: ShallowWrapper
+
+  beforeEach(() => {
+    component = setUpHeader()
+  })
+
   it('Should render image container without errors', () => {
-    const component = shallow(<Header />)
-    const imageContainer = component.find(LogoContainer)
-    expect(imageContainer.length).toBe(1)
+    const imageLogoContainer = fetchComponentByAttribute(
+      component,
+      'logoContainer'
+    )
+    expect(imageLogoContainer).toHaveLength(1)
   })
 
   it('Should render an SVG logo ', () => {
-    
+    const headerLogo = fetchComponentByAttribute(component, 'headerLogo')
+    expect(headerLogo).toHaveLength(1) 
   })
 })
