@@ -1,7 +1,7 @@
 import React from 'react'
-import Headline, { HeadlineProps } from '../components/Headline'
+import Headline, { HeadlineProps } from '../../components/Headline'
 import { shallow, ShallowWrapper } from 'enzyme'
-import { fetchComponentByAttribute } from '../utils'
+import { fetchComponentByAttribute } from '../../utils'
 
 const setUpHeadline = (props: HeadlineProps): ShallowWrapper =>
   shallow(<Headline {...props} />)

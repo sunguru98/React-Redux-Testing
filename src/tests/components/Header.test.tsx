@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, ShallowWrapper } from 'enzyme'
-import Header from '../components/Header'
-import { fetchComponentByAttribute } from '../utils/index'
+import Header from '../../components/Header'
+import { fetchComponentByAttribute } from '../../utils/index'
 
 const setUpHeader = (props: object = {}): ShallowWrapper =>
   shallow(<Header {...props} />)

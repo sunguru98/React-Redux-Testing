@@ -1,4 +1,4 @@
-type Payload = number | string | boolean | object
+type Payload = number | string | boolean | Array<Post>
 
 export interface ReduxAction {
   type: string
@@ -6,7 +6,7 @@ export interface ReduxAction {
 }
 
 export interface Post {
-  title: string,
+  title: string
   body: string
 }
 
