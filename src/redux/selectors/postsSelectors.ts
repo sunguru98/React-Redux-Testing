@@ -1,3 +1,3 @@
-import { ReduxStore } from '../utils/interfaces'
+import { RootState } from "../rootReducer";
 
-export const selectPosts = (state: ReduxStore) => state.posts
+export const selectPosts = (state: RootState) => state.posts

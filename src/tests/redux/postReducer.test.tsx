@@ -1,19 +1,12 @@
-import actionTypes from '../../redux/actionTypes'
+import { SET_POSTS } from '../../redux/types/actionTypes'
 import postsReducer from '../../redux/reducers/postsReducer'
-import { ReduxAction, Post } from '../../redux/utils/interfaces'
-
-const { GET_POSTS } = actionTypes
+import { Post } from '../../redux/types/reducers'
+import { SetPostsAction } from '../../redux/types/actions'
 
 describe('Post Reducer Tests', () => {
   let initialState: Post[]
   beforeEach(() => {
     initialState = []
-  })
-
-  it('Should return empty state for non matching action types', () => {
-    const action: ReduxAction = { type: 'SOME_ACTION' }
-    const state = postsReducer(initialState, action)
-    expect(state).toEqual([])
   })
 
   it('Should return added posts for GET_POSTS action type', () => {
@@ -22,8 +15,8 @@ describe('Post Reducer Tests', () => {
       { title: 'Title2', body: 'Body 2' },
       { title: 'Title3', body: 'Body 3' }
     ]
-    const action: ReduxAction = { type: GET_POSTS, payload: [...posts] }
-    const state = postsReducer(initialState, action)
+    const setPostsAction: SetPostsAction = { type: SET_POSTS, payload: posts }
+    const state = postsReducer(initialState, setPostsAction)
     expect(state).toEqual([...posts])
   })
 })

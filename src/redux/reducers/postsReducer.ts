@@ -1,14 +1,18 @@
-import actionTypes from '../actionTypes'
-import { ReduxAction, Post } from '../utils/interfaces'
+import { Post } from '../types/reducers';
+import { PostAction } from '../types/actions';
+import { SET_POSTS } from '../types/actionTypes';
 
-const { GET_POSTS } = actionTypes
+const initialState: Post[] = [];
 
-export default (state: Post[] = [], action: ReduxAction) => {
-  const { type, payload } = action
+const postsReducer = (state = initialState, action: PostAction): Post[] => {
+  const { type, payload } = action;
+
   switch (type) {
-    case GET_POSTS:
-      return [...state, ...payload]
+    case SET_POSTS:
+      return [...state, ...payload];
     default:
-      return state
+      return state;
   }
-}
+};
+
+export default postsReducer;
