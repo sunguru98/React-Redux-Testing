@@ -11,9 +11,9 @@ describe('Post Reducer Tests', () => {
 
   it('Should return added posts for GET_POSTS action type', () => {
     const posts: Post[] = [
-      { title: 'Title1', body: 'Body 1' },
-      { title: 'Title2', body: 'Body 2' },
-      { title: 'Title3', body: 'Body 3' }
+      { id: 1, title: 'Title1', body: 'Body 1' },
+      { id: 2, title: 'Title2', body: 'Body 2' },
+      { id: 3, title: 'Title3', body: 'Body 3' }
     ]
     const setPostsAction: SetPostsAction = { type: SET_POSTS, payload: posts }
     const state = postsReducer(initialState, setPostsAction)

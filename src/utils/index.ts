@@ -4,3 +4,5 @@ export const fetchComponentByAttribute = (
   component: ShallowWrapper,
   attribute: string
 ) => component.find(`[data-test='${attribute}']`)
+
+

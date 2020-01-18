@@ -1,12 +1,17 @@
-import React from 'react'
-
-interface ButtonProps {
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  children: string | JSX.Element
+import React from 'react';
+import { Post } from '../redux/types/reducers';
+export interface ButtonProps {
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  getPosts?: () => Promise<Post[] | undefined>;
+  children: string | JSX.Element;
 }
 
 const Button = ({ onClick, children }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>
-}
+  return (
+    <button data-test='button' onClick={onClick}>
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

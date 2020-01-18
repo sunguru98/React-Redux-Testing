@@ -1,18 +1,19 @@
-import React from 'react'
-import { Post } from '../redux/types/reducers'
+import React from 'react';
+import { Post } from '../redux/types/reducers';
+import PostListItem from './PostListItem';
 
 interface PostListProps {
-  posts: Post[]
+  posts: Post[];
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
     <div>
       {posts.map((post: Post) => (
-        <h1>hi, {post.title}</h1>
+        <PostListItem post={post} key={post.id} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;

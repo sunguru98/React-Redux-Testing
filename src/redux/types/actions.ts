@@ -1,10 +1,12 @@
 import { Post } from './reducers';
-import { SET_POSTS } from './actionTypes';
+import { SET_POSTS, CLEAR_POSTS } from './actionTypes';
+import { Action } from 'redux';
 
-export interface SetPostsAction {
-  type: typeof SET_POSTS;
+export interface SetPostsAction extends Action<typeof SET_POSTS> {
   payload: Post[];
 }
 
-export type PostAction = SetPostsAction;
+export interface ClearPostsAction extends Action<typeof CLEAR_POSTS>{}
+
+export type PostAction = SetPostsAction | ClearPostsAction;
 export type AppActions = PostAction;
