@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import Header from '../../components/Header';
+import Header, { HeaderProps } from '../../components/Header';
 import { fetchComponentByAttribute } from '../../utils/index';
 
-const setUpHeader = (props: object = {}): ShallowWrapper =>
+const setUpHeader = (props: HeaderProps = {}): ShallowWrapper<HeaderProps, null> =>
   shallow(<Header {...props} />);
 
 describe('Header component tests', () => {
-  let component: ShallowWrapper;
+  let component: ShallowWrapper<HeaderProps, null>;
 
   beforeEach(() => {
     component = setUpHeader();

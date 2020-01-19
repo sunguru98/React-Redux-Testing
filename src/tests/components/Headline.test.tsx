@@ -3,11 +3,11 @@ import Headline, { HeadlineProps } from '../../components/Headline';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { fetchComponentByAttribute } from '../../utils';
 
-const setUpHeadline = (props: HeadlineProps): ShallowWrapper =>
+const setUpHeadline = (props: HeadlineProps): ShallowWrapper<HeadlineProps> =>
   shallow(<Headline {...props} />);
 
 describe('Headline component tests', () => {
-  let component: ShallowWrapper;
+  let component: ShallowWrapper<HeadlineProps>;
 
   describe('Without Props', () => {
     beforeEach(() => {

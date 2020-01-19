@@ -12,8 +12,13 @@ import { getPosts } from './redux/actions/postActions';
 import { RootState } from './redux/rootReducer';
 import { ThunkDispatch } from 'redux-thunk';
 import { AppActions } from './redux/types/actions';
+import { Store } from 'redux';
 
-interface Props extends ReduxProps {}
+interface Props extends ReduxProps {
+  store?: Store<RootState, AppActions> & {
+    dispatch: ThunkDispatch<RootState, null, AppActions>;
+  };
+}
 
 const App: React.FC<Props> = ({ getPosts, posts }) => {
   const handleClick = (): void => {
@@ -21,7 +26,7 @@ const App: React.FC<Props> = ({ getPosts, posts }) => {
   };
 
   return (
-    <div className='App'>
+    <div className='App' data-test='appComponent'>
       <Header />
       <Headline header='All posts' description='Hi there' />
       <Button onClick={handleClick} getPosts={getPosts}>

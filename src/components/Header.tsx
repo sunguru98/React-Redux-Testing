@@ -2,7 +2,9 @@ import React from 'react'
 import { HeaderContainer, LogoContainer } from '../styles/HeaderStyles'
 import { ReactComponent as HeaderLogo } from '../logo.svg'
 
-const Header: React.FC = () => {
+export interface HeaderProps {}
+
+const Header: React.FC<HeaderProps> = () => {
   return (
     <HeaderContainer>
       <LogoContainer data-test='logoContainer'>

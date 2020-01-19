@@ -3,13 +3,11 @@ import Button, { ButtonProps } from '../../components/Button';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { fetchComponentByAttribute } from '../../utils/index';
 
-const setUpButton = (props: ButtonProps): ShallowWrapper =>
-  shallow<React.Component<ButtonProps>>(<Button {...props} />);
-
 describe('Button component tests', () => {
-  let component: ShallowWrapper;
+  let component: ShallowWrapper<ButtonProps, null>;
+
   beforeEach(() => {
-    component = setUpButton({ onClick: () => {}, children: 'Hi' });
+    component = shallow(<Button onClick={() => {}}>Hello</Button>) as ShallowWrapper<ButtonProps, null>;
   });
 
   it('Should render the button itself', () => {
